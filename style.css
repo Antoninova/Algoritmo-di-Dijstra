@@ -1,0 +1,57 @@
+.narrow-input {
+    width: 30px; /* Imposta la larghezza desiderata */
+
+}
+
+.frecce-container{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.buttoni {
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.buttonc{
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.iconi {
+    font-size: 80px;
+    color: red;
+    margin: 0;
+}
+
+.iconc{
+    font-size: 50px;
+    color: red;
+    margin: 0;
+}
+
+.icon-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+
+
