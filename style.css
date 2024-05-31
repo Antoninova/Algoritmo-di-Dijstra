@@ -1,0 +1,228 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    
+}
+
+
+h1 {
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+.h {
+    color: black;
+    position: absolute;
+
+}
+
+
+
+.narrow-input {
+    width: 30px;
+}
+
+.frecce-container {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.buttoni {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: red;
+    margin: 2px;
+}
+
+.buttonc {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 2px;
+}
+
+.iconi {
+    font-size: 80px;
+    border: 2px solid red;
+    color: transparent;
+    margin: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+#matr{
+    background-color: transparent; 
+      border: none; 
+      padding: 0;
+      cursor: pointer;
+      margin: 0;
+}
+.matricon{
+    color: red;
+      font-size: 45px;
+}
+
+.bmtr{
+    display: none;
+}
+
+.iconc {
+    font-size: 50px;
+    color: red;
+    margin: 0;
+    background-color: transparent;
+    width: 50px;
+    
+    height: 50px;
+}
+
+.icon-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.bottoni {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard */
+}
+
+.number {
+    display: none;
+}
+
+.numero {
+    width: auto;
+    height: auto;
+    font-size: large;
+    background-color: transparent;
+    padding: 13px;
+    border: 2px solid red;
+    border-radius: 15px;
+    cursor: pointer;
+    outline: none;
+    color: red;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#nodr:hover {
+    border: 2px solid blue;
+    border-radius: 15px;
+    color: blue;
+}
+
+#nodd:hover {
+    border: 2px solid green;
+    border-radius: 15px;
+    color: green;
+}
+
+#a:hover {
+    background-color: red;
+    color: white;
+}
+
+
+#myCanvas {
+    background-color: white;
+    background-image: radial-gradient(circle, black 1px, transparent 1px);
+    background-size: 20px 20px;
+
+}
+
+#containerc{
+    display: none;
+    position: absolute;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.398); 
+    backdrop-filter: blur(5px); 
+}
+
+#content {
+    position: absolute;
+    margin: auto;
+    border-collapse: collapse;
+}
+.tabl{
+    font-size: 150%;
+    -webkit-user-select: none; /*Safari */
+     -moz-user-select: none;  /* Firefox*/
+     -ms-user-select: none;    /* Internet Explorer/Edge*/
+     user-select: none;        /* Standard*/
+     
+}
+
+.riga {
+    display: flex;
+    gap: 20px;
+}
+.rigaa {
+    display: flex;
+    gap: 20px;
+}
+
+.riga1{
+   width: auto;
+   height: auto;
+   background-color: transparent;
+   border: none;
+   padding: 0;
+   margin: 0;
+   cursor: pointer;
+   
+}
+
+.xicon{
+    color: red;
+    font-size: 20px;
+    --ionicon-stroke-width: 70px;
+}
+
+.container_canvas{
+    margin: 0;
+    padding: 0;
+}
+
+.ris{
+    text-align: center;
+    margin: 1px;
+    padding: 4px;
+    color: black;
+    border: 2px dashed rgb(183, 183, 183);
+    border-radius: 5px;
+}
+
