@@ -21,4 +21,4 @@ Al click del tasto "Calcola" viene applicato l'algoritmo di Dijkstra sulla rete 
 Di seguito i link del mio "Capolavoro":
 
 - [Clicca qui per il codice sorgente](https://github.com/Antoninova/Algoritmo-di-Dijstra.git)
-- [Clicca qui per visualizzare il sito]([https://github.com/Antoninova/Algoritmo-di-Dijstra.git](https://antoninova.github.io/Algoritmo-di-Dijstra/))
+- [Clicca qui per visualizzare il sito](https://github.com/Antoninova/Algoritmo-di-Dijstra.git)
