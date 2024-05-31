@@ -17,3 +17,5 @@ Il sito presenta un’interfaccia grafica per disegnare il grafo di una rete. Ta
 I tasti "Origine" e "Destinatario" permettono di scegliere rispettivamente il nodo origine e il nodo destinatario.
 
 Al click del tasto "Calcola" viene applicato l'algoritmo di Dijkstra sulla rete disegnata; compaiono, inoltre, in un altro pannello Canvas il percorso minimo e a fianco al tasto "Calcola", un tasto per la visualizzazzione della matrice delle adiacenze e del costo massimo del percorso. Tale matrice può essere cambiata di posizione per trascinamento e può essere chiusa dal tasto "X" in alto a destra della matrice stessa o dal tasto utilizzato in precedenza per visualizzarla.
+
+[sito]([Sito](https://antoninova.github.io/Algoritmo-di-Dijstra/))
