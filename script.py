@@ -242,5 +242,3 @@ def out():
     except Exception as e:
         print(print(f"An error occurred: {e}"))
 
-    # p.innerHTML = "<b> CIAO <b>"
-
