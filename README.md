@@ -18,4 +18,4 @@ I tasti "Origine" e "Destinatario" permettono di scegliere rispettivamente il no
 
 Al click del tasto "Calcola" viene applicato l'algoritmo di Dijkstra sulla rete disegnata; compaiono, inoltre, in un altro pannello Canvas il percorso minimo e a fianco al tasto "Calcola", un tasto per la visualizzazzione della matrice delle adiacenze e del costo massimo del percorso. Tale matrice può essere cambiata di posizione per trascinamento e può essere chiusa dal tasto "X" in alto a destra della matrice stessa o dal tasto utilizzato in precedenza per visualizzarla.
 
-[sito](https://antoninova.github.io/Algoritmo-di-Dijstra/)
+[Clicca qui per il codice sorgente](https://github.com/Antoninova/Algoritmo-di-Dijstra.git)
