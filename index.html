@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo di Dijkstra</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://pyscript.net/releases/2024.1.3/core.css"
+  />
+  <script
+    type="module"
+    src="https://pyscript.net/releases/2024.1.3/core.js"
+    ></script>
+
+    </head>
+
+    <body>
+  
+      <div class="h" id="hhh">
+      <h1 >Algoritmo di Dijkstra</h1>
+    </div>
+    <div class="bottoni" id="btns">      
+        <button id="i" class="buttoni">
+          <ion-icon class="iconi" name="ellipse"></ion-icon>
+          <span class="icon-text">Nodo</span>
+        </button>
+
+        
+
+        <button id="c" class="buttonc">
+          <ion-icon class="iconc" name="color-wand"></ion-icon>
+        </button>
+      </div>
+
+      <div class="container_canvas">
+        <canvas id="myCanvas" width="800"  height="600" ></canvas>
+      </div>
+      
+      
+        
+      <div class="num">
+        <button id="nodr" class="numero">Origine</button>
+        <button id="nodd" class="numero">Destinatario</button>
+        <button id="a" class="numero">Calcola</button>
+        <div id="b" class="bmtr">
+        <button id="matr"> 
+          <ion-icon class="matricon" name="apps-outline"></ion-icon>
+        </button>
+      </div>
+      </div>
+
+      <div class="number">
+        <input id="nr" type="number" placeholder="Nodo origine" min="0">
+        <input id="nd" type="number" placeholder="Nodo destinatario" min="1">
+      </div>
+
+      <div id="containerc">
+
+        <table id="tab" class="tabl">
+            <tbody id="tbody" class="tbod">
+              <tr id="tr" class="trr">
+                <th id="th" class="thh">
+                  <button id="btnmatr" class="riga1">
+                  <ion-icon name="close-outline" class="xicon"></ion-icon>
+                </button>
+                </th>
+                
+              </tr>
+            </tbody>
+           
+        </table>
+         <div id="r" class="ris"></div>
+      </div>
+        
+
+
+
+       
+
+         
+        
+        <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+   
+    <script src="script.js"></script>
+    <script type="py" src="./script.py" config="./pyscript.json"></script>
+
+   
+    </body>
+    
+</html>
