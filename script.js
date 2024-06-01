@@ -887,31 +887,30 @@ function onMouseUp() {
     document.removeEventListener('mouseup', onMouseUp);
 }
 
-
-
-
-
-const contentDiv = document.getElementById('containerc');
-
-let offsetXX, offsetYY;
-
-contentDiv.addEventListener('mousedown', function(event) {
+contentDiv.addEventListener('touchstart', function(event) {
+    const touch = event.touches[0];
     const rect = contentDiv.getBoundingClientRect();
-    if (event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom) {
-        offsetXX = event.pageX - contentDiv.offsetLeft;
-        offsetYY = event.pageY - contentDiv.offsetTop;
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
+    if (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+        offsetXX = touch.pageX - contentDiv.offsetLeft;
+        offsetYY = touch.pageY - contentDiv.offsetTop;
+        document.addEventListener('touchmove', onTouchMove);
+        document.addEventListener('touchend', onTouchEnd);
     }
 });
 
-function onMouseMove(event) {
-    contentDiv.style.left = event.pageX - offsetXX + 'px';
-    contentDiv.style.top = event.pageY - offsetYY + 'px';
+function onTouchMove(event) {
+    const touch = event.touches[0];
+    contentDiv.style.left = touch.pageX - offsetXX + 'px';
+    contentDiv.style.top = touch.pageY - offsetYY + 'px';
 }
 
-function onMouseUp() {
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
+function onTouchEnd() {
+    document.removeEventListener('touchmove', onTouchMove);
+    document.removeEventListener('touchend', onTouchEnd);
 }
+
+
+
+
+
 
