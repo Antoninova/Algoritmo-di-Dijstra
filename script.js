@@ -915,28 +915,3 @@ function onMouseUp() {
     document.removeEventListener('mouseup', onMouseUp);
 }
 
-
-
-contentDiv.addEventListener('touchstart', function(event) {
-    const touch = event.touches[0];
-    const rect = contentDiv.getBoundingClientRect();
-    if (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
-        offsetXX = touch.pageX - contentDiv.offsetLeft;
-        offsetYY = touch.pageY - contentDiv.offsetTop;
-        document.addEventListener('touchmove', onTouchMove);
-        document.addEventListener('touchend', onTouchEnd);
-    }
-});
-
-function onTouchMove(event) {
-    const touch = event.touches[0];
-    contentDiv.style.left = touch.pageX - offsetXX + 'px';
-    contentDiv.style.top = touch.pageY - offsetYY + 'px';
-}
-
-function onTouchEnd() {
-    document.removeEventListener('touchmove', onTouchMove);
-    document.removeEventListener('touchend', onTouchEnd);
-}
-
-
