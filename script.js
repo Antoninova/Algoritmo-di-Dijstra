@@ -1035,7 +1035,7 @@ canvas.addEventListener('touchend', function() {
 });
 
 canvas.addEventListener('touchmove', function(e) {
-    
+    e.stopPropagation();
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const mouseX = touch.clientX - rect.left;
