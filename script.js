@@ -930,6 +930,7 @@ canvas.addEventListener('touchstart', function(e) {
         const distance = Math.sqrt((mouseX - circle.x) ** 2 + (mouseY - circle.y) ** 2);
         if (distance <= circle.radius) {
             circle.isDragging = true;
+            e.preventDefault();
             circle.offsetX = mouseX - circle.x;
             circle.offsetY = mouseY - circle.y;
         }
@@ -1040,12 +1041,8 @@ canvas.addEventListener('touchmove', function(e) {
     const mouseX = touch.clientX - rect.left;
     const mouseY = touch.clientY - rect.top;
 
-    let isInteractingWithCircles = false;
-
     circles.forEach(circle => {
         if (circle.isDragging) {
-            isInteractingWithCircles = true;
-            if(isInteractingWithCircles){
                 e.preventDefault();
             const newX = mouseX - circle.offsetX;
             const newY = mouseY - circle.offsetY;
@@ -1079,9 +1076,7 @@ canvas.addEventListener('touchmove', function(e) {
             });
 
             drawCircles();
-        }else {
-            e.stopPropagation();
-        }
+        
     }
     });
 });
