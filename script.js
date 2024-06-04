@@ -919,7 +919,7 @@ function onTouchEnd() {
 
 
 
-let touch = false;
+
 canvas.addEventListener('touchstart', function(e) {
     const rect = canvas.getBoundingClientRect();
     const touch = e.touches[0];
@@ -1027,16 +1027,12 @@ canvas.addEventListener('touchstart', function(e) {
         else
             canvas.style.cursor = 'url("ellipse-outline.svg"), auto';
     }
-
-    touch = true;
 });
 
 canvas.addEventListener('touchend', function() {
-    if(touch){
-        circles.forEach(circle => {
-            circle.isDragging = false;
-        });
-    }
+    circles.forEach(circle => {
+        circle.isDragging = false;
+    });
 });
 
 canvas.addEventListener('touchmove', function(e) {
