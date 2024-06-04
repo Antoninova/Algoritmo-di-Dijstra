@@ -1035,7 +1035,7 @@ canvas.addEventListener('touchend', function() {
 });
 
 canvas.addEventListener('touchmove', function(e) {
-    e.preventDefault();
+    
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const mouseX = touch.clientX - rect.left;
@@ -1043,6 +1043,7 @@ canvas.addEventListener('touchmove', function(e) {
 
     circles.forEach(circle => {
         if (circle.isDragging) {
+            e.preventDefault();
             const newX = mouseX - circle.offsetX;
             const newY = mouseY - circle.offsetY;
 
