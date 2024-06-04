@@ -919,7 +919,7 @@ function onTouchEnd() {
 
 
 
-
+let touch = false;
 canvas.addEventListener('touchstart', function(e) {
     const rect = canvas.getBoundingClientRect();
     const touch = e.touches[0];
@@ -956,7 +956,6 @@ canvas.addEventListener('touchstart', function(e) {
 
             if (!btno && !btnd) {
                 canvas.style.cursor = 'crosshair';
-                console.log("CLICCATO");
             } else if (btno) {
                 let vi = ind;
                 ind = cerchiof - cerchioi;
@@ -1028,12 +1027,16 @@ canvas.addEventListener('touchstart', function(e) {
         else
             canvas.style.cursor = 'url("ellipse-outline.svg"), auto';
     }
+
+    touch = true;
 });
 
 canvas.addEventListener('touchend', function() {
-    circles.forEach(circle => {
-        circle.isDragging = false;
-    });
+    if(touch){
+        circles.forEach(circle => {
+            circle.isDragging = false;
+        });
+    }
 });
 
 canvas.addEventListener('touchmove', function(e) {
