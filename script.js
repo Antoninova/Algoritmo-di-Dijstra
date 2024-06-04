@@ -1,5 +1,6 @@
 
 
+
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 let isDragging = false;
@@ -881,10 +882,15 @@ function onMouseMove(event) {
     contentDiv.style.top = event.pageY - offsetYY + 'px';
 }
 
+
 function onMouseUp() {
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('mouseup', onMouseUp);
 }
+
+
+
+
 
 contentDiv.addEventListener('touchstart', function(event) {
     const touch = event.touches[0];
@@ -894,6 +900,7 @@ contentDiv.addEventListener('touchstart', function(event) {
         offsetYY = touch.pageY - contentDiv.offsetTop;
         document.addEventListener('touchmove', onTouchMove);
         document.addEventListener('touchend', onTouchEnd);
+        event.preventDefault();
     }
 });
 
@@ -901,12 +908,176 @@ function onTouchMove(event) {
     const touch = event.touches[0];
     contentDiv.style.left = touch.pageX - offsetXX + 'px';
     contentDiv.style.top = touch.pageY - offsetYY + 'px';
+    event.preventDefault();
 }
 
 function onTouchEnd() {
     document.removeEventListener('touchmove', onTouchMove);
     document.removeEventListener('touchend', onTouchEnd);
+    event.preventDefault();
 }
+
+
+
+
+canvas.addEventListener('touchstart', function(e) {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    const mouseX = touch.clientX - rect.left;
+    const mouseY = touch.clientY - rect.top;
+
+    circles.forEach(circle => {
+        const distance = Math.sqrt((mouseX - circle.x) ** 2 + (mouseY - circle.y) ** 2);
+        if (distance <= circle.radius) {
+            circle.isDragging = true;
+            circle.offsetX = mouseX - circle.x;
+            circle.offsetY = mouseY - circle.y;
+        }
+    });
+
+    let circleClicked = null;
+    let cerchioi = 0, cerchiof = 0;
+
+    circles.forEach(circle => {
+        const distance = Math.sqrt((mouseX - circle.x) ** 2 + (mouseY - circle.y) ** 2);
+        if (distance <= circle.radius) {
+            circleClicked = circle;
+        }
+        if (circleClicked != null)
+            cerchioi++;
+
+        cerchiof++;
+    });
+
+    if (circleClicked) {
+        if (selectedCircles.length < 2) {
+            selectedCircles.push(circleClicked);
+
+            if (!btno && !btnd) {
+                canvas.style.cursor = 'crosshair';
+            } else if (btno) {
+                let vi = ind;
+                ind = cerchiof - cerchioi;
+                if (ind == vi) {
+                    ind = 3000000000000;
+                    document.getElementById('nr').value = "";
+                    btno = false;
+                    selectedCircles = [];
+                    drawCircles();
+                    canvas.style.cursor = 'default';
+                } else if (ind != indiced) {
+                    document.getElementById('nr').value = (ind + 1);
+                    btno = false;
+                    selectedCircles = [];
+                    drawCircles();
+                    canvas.style.cursor = 'default';
+                } else {
+                    ind = vi;
+                    selectedCircles = [];
+                }
+            } if (btnd) {
+                let vi = indiced;
+                indiced = cerchiof - cerchioi;
+                if (indiced == vi) {
+                    indiced = 3000000000000;
+                    document.getElementById('nd').value = "";
+                    btnd = false;
+                    selectedCircles = [];
+                    drawCircles();
+                    canvas.style.cursor = 'default';
+                } else if (indiced != ind) {
+                    document.getElementById('nd').value = (indiced + 1);
+                    btnd = false;
+                    selectedCircles = [];
+                    drawCircles();
+                    canvas.style.cursor = 'default';
+                } else {
+                    indiced = vi;
+                    selectedCircles = [];
+                }
+            }
+
+            if (selectedCircles.length === 2) {
+                if (selectedCircles[0] !== selectedCircles[1]) {
+                    addArrowIfNotExists(selectedCircles[0].x, selectedCircles[0].y, selectedCircles[1].x, selectedCircles[1].y);
+                }
+                selectedCircles = [];
+                if (!cancfrec && !bott)
+                    canvas.style.cursor = 'default';
+                else if (cancfrec)
+                    canvas.style.cursor = 'url("color-wand.svg"), auto';
+                else
+                    canvas.style.cursor = 'url("ellipse-outline.svg"), auto';
+            }
+        } else {
+            selectedCircles = [circleClicked];
+            canvas.style.cursor = 'crosshair';
+        }
+    } else {
+        if (bott) {
+            circles.push({ x: mouseX, y: mouseY, radius: 40, isDragging: false, offsetX: 0, offsetY: 0 });
+            drawCircles();
+        }
+        selectedCircles = [];
+        if (!cancfrec && !bott)
+            canvas.style.cursor = 'default';
+        else if (cancfrec)
+            canvas.style.cursor = 'url("color-wand.svg"), auto';
+        else
+            canvas.style.cursor = 'url("ellipse-outline.svg"), auto';
+    }
+});
+
+canvas.addEventListener('touchend', function() {
+    circles.forEach(circle => {
+        circle.isDragging = false;
+    });
+});
+
+canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = touch.clientX - rect.left;
+    const mouseY = touch.clientY - rect.top;
+
+    circles.forEach(circle => {
+        if (circle.isDragging) {
+            const newX = mouseX - circle.offsetX;
+            const newY = mouseY - circle.offsetY;
+
+            let collisionDetected = false;
+            circles.forEach(otherCircle => {
+                if (circle !== otherCircle) {
+                    const distance = Math.sqrt((newX - otherCircle.x) ** 2 + (newY - otherCircle.y) ** 2);
+                    const minDistance = circle.radius + otherCircle.radius;
+                    if (distance < minDistance) {
+                        collisionDetected = true;
+                        return;
+                    }
+                }
+            });
+
+            if (!collisionDetected) {
+                circle.x = newX;
+                circle.y = newY;
+            }
+
+            arrows.forEach(arrow => {
+                if (pointInsideCircle(arrow.startX, arrow.startY, circle.x, circle.y, circle.radius)) {
+                    arrow.startX = circle.x;
+                    arrow.startY = circle.y;
+                }
+                if (pointInsideCircle(arrow.endX, arrow.endY, circle.x, circle.y, circle.radius)) {
+                    arrow.endX = circle.x;
+                    arrow.endY = circle.y;
+                }
+            });
+
+            drawCircles();
+        }
+    });
+});
 
 
 
