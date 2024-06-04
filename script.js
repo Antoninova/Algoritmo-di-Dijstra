@@ -609,12 +609,6 @@ document.getElementById('btnmatr').addEventListener('click', function(event){
     matric = true;
 });
 
-document.getElementById('btnmatr').ontouchstart = function(event) {
-    event.preventDefault();
-    document.getElementById('containerc').style.display = 'none';
-    matric = true;
-};
-
 
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('frecce')) {
