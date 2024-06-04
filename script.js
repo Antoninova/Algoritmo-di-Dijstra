@@ -1035,14 +1035,18 @@ canvas.addEventListener('touchend', function() {
 });
 
 canvas.addEventListener('touchmove', function(e) {
-    e.stopPropagation();
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const mouseX = touch.clientX - rect.left;
     const mouseY = touch.clientY - rect.top;
 
+    let isInteractingWithCircles = false;
+
     circles.forEach(circle => {
         if (circle.isDragging) {
+            isInteractingWithCircles = true;
+            if(isInteractingWithCircles){
+                e.preventDefault();
             const newX = mouseX - circle.offsetX;
             const newY = mouseY - circle.offsetY;
 
@@ -1075,7 +1079,10 @@ canvas.addEventListener('touchmove', function(e) {
             });
 
             drawCircles();
+        }else {
+            e.stopPropagation();
         }
+    }
     });
 });
 
