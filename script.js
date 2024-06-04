@@ -1041,11 +1041,10 @@ canvas.addEventListener('touchmove', function(e) {
     const mouseX = touch.clientX - rect.left;
     const mouseY = touch.clientY - rect.top;
 
-    let isDraggingCircle = false;
+    
 
     circles.forEach(circle => {
         if (circle.isDragging) {
-            isDraggingCircle = true;
                 e.preventDefault();
             const newX = mouseX - circle.offsetX;
             const newY = mouseY - circle.offsetY;
@@ -1082,10 +1081,6 @@ canvas.addEventListener('touchmove', function(e) {
         
     }
     });
-
-    if (!isDraggingCircle) {
-        e.preventDefault();
-    }
 });
 
 
