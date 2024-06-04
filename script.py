@@ -80,11 +80,12 @@ def out():
 
        
 
-        if(nd != len(grafo)-1):
-            grafo[nd], grafo[len(grafo)-1] = grafo[len(grafo)-1], grafo[nd]
-
-        if(no != len(grafo)-1):
-            grafo[0], grafo[no] = grafo[no], grafo[0]
+        grafo[nd], grafo[len(grafo)-1] = grafo[len(grafo)-1], grafo[nd]
+        
+        if no == len(grafo) - 1:
+            no = nd
+        
+        grafo[0], grafo[no] = grafo[no], grafo[0]
 
         
         
