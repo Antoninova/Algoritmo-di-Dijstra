@@ -919,8 +919,9 @@ function onTouchEnd() {
 
 
 
-
+let isInteractingWithCircles = false;
 canvas.addEventListener('touchstart', function(e) {
+    isInteractingWithCircles = true;    
     const rect = canvas.getBoundingClientRect();
     const touch = e.touches[0];
     const mouseX = touch.clientX - rect.left;
@@ -1029,13 +1030,15 @@ canvas.addEventListener('touchstart', function(e) {
 });
 
 canvas.addEventListener('touchend', function() {
+    isInteractingWithCircles = false;
     circles.forEach(circle => {
         circle.isDragging = false;
     });
 });
 
 canvas.addEventListener('touchmove', function(e) {
-    e.stopPropagation();
+    if (isInteractingWithCircles) {
+        e.preventDefault();
     const touch = e.touches[0];
     const rect = canvas.getBoundingClientRect();
     const mouseX = touch.clientX - rect.left;
@@ -1077,6 +1080,7 @@ canvas.addEventListener('touchmove', function(e) {
             drawCircles();
         }
     });
+    }else e.stopPropagation();
 });
 
 
