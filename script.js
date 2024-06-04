@@ -1043,7 +1043,6 @@ canvas.addEventListener('touchmove', function(e) {
 
     circles.forEach(circle => {
         if (circle.isDragging) {
-            e.preventDefault();
             const newX = mouseX - circle.offsetX;
             const newY = mouseY - circle.offsetY;
 
