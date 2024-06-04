@@ -930,7 +930,7 @@ canvas.addEventListener('touchstart', function(e) {
         const distance = Math.sqrt((mouseX - circle.x) ** 2 + (mouseY - circle.y) ** 2);
         if (distance <= circle.radius) {
             circle.isDragging = true;
-            // e.preventDefault();
+            e.preventDefault();
             circle.offsetX = mouseX - circle.x;
             circle.offsetY = mouseY - circle.y;
         }
