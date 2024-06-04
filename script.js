@@ -956,6 +956,7 @@ canvas.addEventListener('touchstart', function(e) {
 
             if (!btno && !btnd) {
                 canvas.style.cursor = 'crosshair';
+                console.log("CLICCATO");
             } else if (btno) {
                 let vi = ind;
                 ind = cerchiof - cerchioi;
