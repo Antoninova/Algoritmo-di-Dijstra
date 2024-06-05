@@ -903,6 +903,9 @@ function onMouseUp() {
 
 
 contentDiv.addEventListener('touchstart', function(event) {
+    if (event.target.closest('#btnmatr')) {
+        return;
+    }
     const touch = event.touches[0];
     const rect = contentDiv.getBoundingClientRect();
     if (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
