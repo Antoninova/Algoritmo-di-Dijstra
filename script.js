@@ -789,6 +789,9 @@ generatedRows.forEach(row => row.remove());
                 th.textContent = nodi[j];
                 th.style.verticalAlign = 'middle';
                 th.style.textAlign = 'center';
+                th.classList.add('generated-td');
+
+                // th.style.margin = '50px';
                 if (j == 0)
                     th.style.color = 'blue';
                 else if (j == nodi.length - 1) 
@@ -820,6 +823,8 @@ generatedRows.forEach(row => row.remove());
             tdFirst.textContent = nodi[indice];
             tdFirst.style.verticalAlign = 'middle';
             tdFirst.style.textAlign = 'center';
+            tdFirst.classList.add('generated-td');
+
             if (indice == 0)
                 tdFirst.style.color = 'blue';
             else if (indice == nodi.length - 1) 
@@ -839,7 +844,8 @@ generatedRows.forEach(row => row.remove());
                 const td = document.createElement('td');
                 td.style.verticalAlign = 'middle';
                 td.style.textAlign = 'center';
-
+                td.classList.add('generated-td');
+                // td.style.margin = '50px';
                 while (matr[j] != " ") {
                     td.textContent += matr[j];
                     if (j == 0)
@@ -855,6 +861,10 @@ generatedRows.forEach(row => row.remove());
             i = j;
         }
     }
+
+    console.log("Mtrice: " + matr);
+    console.log(document.getElementById('nr').value);
+    console.log(document.getElementById('nd').value);
 }
 
 

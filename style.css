@@ -73,7 +73,7 @@ h1 {
 }
 .matricon{
     color: red;
-      font-size: 45px;
+    font-size: 45px;
 }
 
 .bmtr{
@@ -209,7 +209,7 @@ h1 {
 .xicon{
     color: red;
     font-size: 20px;
-    --ionicon-stroke-width: 70px;
+    --ionicon-stroke-width: 110px;
 }
 
 .container_canvas{
@@ -226,3 +226,6 @@ h1 {
     border-radius: 5px;
 }
 
+.generated-td {
+    padding: 5px;
+}
